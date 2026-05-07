@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://f7r58h0uohgg"]
+
+[ext_resource type="PackedScene" uid="uid://do507b1qx71l7" path="res://scenes/player/player.tscn" id="1_m802k"]
+[ext_resource type="PackedScene" uid="uid://bvioiipat5b6o" path="res://scenes/enemies/enemy_basic.tscn" id="2_i2aat"]
+[ext_resource type="PackedScene" uid="uid://b6id44l67r5gm" path="res://scenes/props/health_well.tscn" id="3_2djvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m802k"]
+size = Vector2(1280, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j28rk"]
+size = Vector2(1280, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2aat"]
+size = Vector2(20, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2djvx"]
+size = Vector2(20, 720)
+
+[node name="Level_01" type="Node2D" unique_id=1918244203]
+
+[node name="floor" type="ColorRect" parent="." unique_id=637718076]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+
+[node name="Wall_Top" type="StaticBody2D" parent="." unique_id=194826439]
+position = Vector2(640, -10)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_Top" unique_id=1428636196]
+shape = SubResource("RectangleShape2D_m802k")
+
+[node name="Wall_Bottom" type="StaticBody2D" parent="." unique_id=1265625366]
+position = Vector2(640, 730)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_Bottom" unique_id=1286497021]
+shape = SubResource("RectangleShape2D_j28rk")
+
+[node name="Wall_Left" type="StaticBody2D" parent="." unique_id=277482148]
+position = Vector2(-10, 360)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_Left" unique_id=281477590]
+shape = SubResource("RectangleShape2D_i2aat")
+
+[node name="Wall_Right" type="StaticBody2D" parent="." unique_id=1321223552]
+position = Vector2(1290, 360)
+
+[node name="Shape" type="CollisionShape2D" parent="Wall_Right" unique_id=251468816]
+shape = SubResource("RectangleShape2D_2djvx")
+
+[node name="Player" parent="." unique_id=1330476454 instance=ExtResource("1_m802k")]
+position = Vector2(640, 360)
+
+[node name="Enemy" parent="." unique_id=1134598795 instance=ExtResource("2_i2aat")]
+position = Vector2(1009, 368)
+max_hp = 30
+
+[node name="Enemy2" parent="." unique_id=1151939721 instance=ExtResource("2_i2aat")]
+position = Vector2(381, 181)
+max_hp = 30
+
+[node name="Enemy3" parent="." unique_id=358889066 instance=ExtResource("2_i2aat")]
+position = Vector2(499, 521)
+speed = 100.0
+damage = 8
+max_hp = 40
+
+[node name="Enemy4" parent="." unique_id=1757168707 instance=ExtResource("2_i2aat")]
+position = Vector2(822, 69)
+damage = 10
+max_hp = 60
+
+[node name="Enemy5" parent="." unique_id=1230305088 instance=ExtResource("2_i2aat")]
+position = Vector2(921, 650)
+speed = 90.0
+max_hp = 40
+
+[node name="HealthWell" parent="." unique_id=1158118465 instance=ExtResource("3_2djvx")]
+position = Vector2(111, 621)
+
+[node name="HealthWell2" parent="." unique_id=984027345 instance=ExtResource("3_2djvx")]
+position = Vector2(1153, 88)

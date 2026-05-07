@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bvioiipat5b6o"]
+
+[ext_resource type="Texture2D" uid="uid://co8u7rv75ljgw" path="res://assets/sprites/enemy_attack_1.png" id="1_l7s2y"]
+[ext_resource type="Script" uid="uid://csd45kb2gow67" path="res://scripts/entities/enemy_basic.gd" id="1_wdew8"]
+[ext_resource type="Texture2D" uid="uid://b1p11fndchj3g" path="res://assets/sprites/enemy_attack_2.png" id="2_wdew8"]
+[ext_resource type="Texture2D" uid="uid://d4jssg6mbkpeb" path="res://assets/sprites/enemy_run_1.png" id="3_ror4f"]
+[ext_resource type="Texture2D" uid="uid://dgbvqietvcl3d" path="res://assets/sprites/enemy_run_2.png" id="4_25x6n"]
+[ext_resource type="Texture2D" uid="uid://ctnlqq7oy5tw" path="res://assets/sprites/enemy_run_3.png" id="5_j6ypn"]
+[ext_resource type="Texture2D" uid="uid://dgsk0flq2dpom" path="res://assets/sprites/enemy_run_4.png" id="6_a1uta"]
+[ext_resource type="Texture2D" uid="uid://ctcm3cwrkjnlm" path="res://assets/sprites/enemy_idle.png" id="7_17tle"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgbw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l7s2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wdew8")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ror4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_25x6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j6ypn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a1uta")
+}],
+"loop": true,
+"name": &"chase",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_17tle")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3830d"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haaaj"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgfb6"]
+radius = 250.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1134598795]
+collision_layer = 4
+script = ExtResource("1_wdew8")
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=1725028614]
+position = Vector2(-2.0503998e-05, -2.861023e-06)
+scale = Vector2(0.019230794, 0.034482762)
+sprite_frames = SubResource("SpriteFrames_bgbw7")
+animation = &"attack"
+
+[node name="BodyShape" type="CollisionShape2D" parent="." unique_id=755350258]
+shape = SubResource("RectangleShape2D_3830d")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1567668025]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1148966546]
+shape = SubResource("RectangleShape2D_haaaj")
+
+[node name="Vision" type="Area2D" parent="." unique_id=1175059119 groups=["player"]]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=1393309561]
+shape = SubResource("CircleShape2D_rgfb6")

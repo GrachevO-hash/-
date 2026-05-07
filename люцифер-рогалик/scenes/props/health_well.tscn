@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b6id44l67r5gm"]
+
+[ext_resource type="Script" uid="uid://dgta7hlnuys17" path="res://scripts/props/health_well.gd" id="1_vjdp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjdp3"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ovvd"]
+size = Vector2(80, 80)
+
+[node name="HealthWell" type="StaticBody2D" unique_id=1158118465]
+collision_mask = 0
+script = ExtResource("1_vjdp3")
+
+[node name="SolidShape" type="CollisionShape2D" parent="." unique_id=1440340617]
+shape = SubResource("RectangleShape2D_vjdp3")
+
+[node name="Visual" type="ColorRect" parent="." unique_id=239464517]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 1)
+
+[node name="HealTrigger" type="Area2D" parent="." unique_id=176608036]
+
+[node name="TriggerShape" type="CollisionShape2D" parent="HealTrigger" unique_id=530919776]
+shape = SubResource("RectangleShape2D_5ovvd")
