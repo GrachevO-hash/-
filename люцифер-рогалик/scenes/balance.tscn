@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://crs8pfqlkwljb"]
+
+[ext_resource type="Script" uid="uid://dc7xyllhg2jiw" path="res://scripts/systems/GameBalance.gd" id="1_0vrhp"]
+
+[node name="Balance" type="Node" unique_id=1298547830]
+script = ExtResource("1_0vrhp")
+player_max_health = 12
+player_speed = 140.0
+player_attack_damage = 1
+enemy_max_health = 3
+enemy_move_speed = 80.0
+enemy_attack_damage = 1
+enemy_attack_cooldown = 1.2
+enemy_patrol_speed = 20.0
+enemy_retreat_speed = 50.0
+enemy_patrol_radius = 150.0
+enemy_retreat_chance = 0.4
+well_heal_amount = 3
+well_cooldown_time = 7.0
+enemy_count = 10
+well_count = 5
