@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b037iajv7f1ft"]
+
+[ext_resource type="AudioStream" uid="uid://dqbul7djsbv7e" path="res://Audio/chest_open.ogg" id="1_xeosd"]
+[ext_resource type="Script" uid="uid://bqjehrjhaui0j" path="res://scenes/props/chest.gd" id="2_ak388"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ak388"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8mbp"]
+radius = 20.0
+
+[node name="Chest" type="StaticBody2D" unique_id=848679181]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_ak388")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1319788475]
+scale = Vector2(0.12, 0.12)
+
+[node name="OpenTrigger" type="Area2D" parent="." unique_id=644623845]
+
+[node name="TriggerShape" type="CollisionShape2D" parent="OpenTrigger" unique_id=1866506666]
+shape = SubResource("CircleShape2D_ak388")
+
+[node name="ChestSound" type="AudioStreamPlayer2D" parent="." unique_id=1507781943]
+stream = ExtResource("1_xeosd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2020545924]
+shape = SubResource("CircleShape2D_r8mbp")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://crs8pfqlkwljb"]
+
+[ext_resource type="Script" uid="uid://dc7xyllhg2jiw" path="res://scripts/systems/GameBalance.gd" id="1_0vrhp"]
+
+[node name="Balance" type="Node" unique_id=1298547830]
+script = ExtResource("1_0vrhp")
+player_max_health = 25
+player_speed = 200.0
+player_attack_damage = 1
+enemy_max_health = 2
+enemy_move_speed = 110.0
+enemy_attack_damage = 1
+enemy_patrol_speed = 20.0
+enemy_retreat_speed = 60.0
+enemy_vision_range = 300.0
+gold_golem_max_health = 5
+gold_golem_attack_damage = 3
+gold_golem_attack_range = 40.0
+gold_golem_attack_cooldown = 1.4
+gold_golem_patrol_speed = 90.0
+gold_golem_retreat_speed = 60.0
+gold_golem_patrol_radius = 250.0
+gold_golem_vision_range = 250.0
+gold_golem_count = 16
+wooden_chest_count = 4
+wooden_chest_min_gold = 0
+wooden_chest_max_gold = 2
+steel_chest_count = 2
+steel_chest_min_gold = 1
+demonic_chest_count = 0
+golden_chest_min_gold = 3
+golden_chest_max_gold = 9
+well_heal_amount = 10
+room_count = 13
+min_room_size = 20
+max_room_size = 50
+corridor_width = 15
+enemy_count = 60
+well_count = 9

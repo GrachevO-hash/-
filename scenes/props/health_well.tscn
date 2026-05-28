@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b6id44l67r5gm"]
+
+[ext_resource type="Texture2D" uid="uid://cmu3a3qgxu2id" path="res://assets/sprites/Props/well_full.png" id="1_5ovvd"]
+[ext_resource type="Script" uid="uid://dqatiqmchn4e" path="res://scenes/props/health_well.gd" id="1_vjdp3"]
+[ext_resource type="AudioStream" uid="uid://b15pewnjoy8xu" path="res://Audio/well_heal.ogg" id="2_dwsrx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x5mk8"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ovvd"]
+radius = 25.0
+
+[node name="HealthWell" type="StaticBody2D" unique_id=756595597]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_vjdp3")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1138634143]
+position = Vector2(0, -2.299997)
+scale = Vector2(0.1, 0.10839416)
+texture = ExtResource("1_5ovvd")
+
+[node name="HealTrigger" type="Area2D" parent="." unique_id=1473142950]
+collision_layer = 128
+
+[node name="Shape" type="CollisionShape2D" parent="HealTrigger" unique_id=1513888206]
+shape = SubResource("CircleShape2D_x5mk8")
+
+[node name="HealSound" type="AudioStreamPlayer2D" parent="." unique_id=1143495011]
+stream = ExtResource("2_dwsrx")
+volume_db = 10.0
+max_distance = 300.0
+
+[node name="HealTimer" type="Timer" parent="." unique_id=1493951074]
+
+[node name="BodyShape" type="CollisionShape2D" parent="." unique_id=1632995171]
+shape = SubResource("CircleShape2D_5ovvd")

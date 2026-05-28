@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://gshsmoc34cd4"]
+
+[ext_resource type="Script" uid="uid://cvdisxdlwf34q" path="res://scripts/entities/gold_golem.gd" id="1_0tk2h"]
+[ext_resource type="SpriteFrames" uid="uid://bg68lt2w2ftuj" path="res://assets/sprites/GoldGolem/golem_frames.tres" id="2_f81o1"]
+[ext_resource type="PackedScene" uid="uid://dlqjg0lsuxrfu" path="res://scenes/ui/health_bar.tscn" id="9_h3xox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ror4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ror4f"]
+size = Vector2(20, 36.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgfb6"]
+radius = 200.0
+
+[sub_resource type="Gradient" id="Gradient_wdew8"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ror4f"]
+gradient = SubResource("Gradient_wdew8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1134598795]
+z_index = 1
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_0tk2h")
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=1725028614]
+position = Vector2(3.33786e-06, -13.999997)
+scale = Vector2(0.123046875, 0.10989011)
+sprite_frames = ExtResource("2_f81o1")
+animation = &"idle"
+
+[node name="BodyShape" type="CollisionShape2D" parent="." unique_id=755350258]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("CircleShape2D_ror4f")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1567668025]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1148966546]
+position = Vector2(0, -12.999998)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_ror4f")
+
+[node name="Vision" type="Area2D" parent="." unique_id=1175059119 groups=["player"]]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=1393309561]
+shape = SubResource("CircleShape2D_rgfb6")
+
+[node name="GlowLight" type="PointLight2D" parent="." unique_id=969544720]
+z_index = 10
+position = Vector2(0, -16)
+color = Color(0.4, 0.4, 1, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_ror4f")
+
+[node name="HealthBar" parent="." unique_id=1232288445 instance=ExtResource("9_h3xox")]
+position = Vector2(-20, -50)
+max_width = 40.0

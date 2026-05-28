@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cf2j26n2kwig6"]
+
+[ext_resource type="Script" uid="uid://bncjp2150g1lu" path="res://scenes/ui/minimap.gd" id="1_gnlsb"]
+
+[node name="Minimap" type="Control" unique_id=97444879]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gnlsb")
+map_size = 800.0
+player_color = Color(0.9254902, 0.5647059, 0, 1)
