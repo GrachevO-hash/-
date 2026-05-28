@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cjdx72kewidky"]
+
+[ext_resource type="Script" uid="uid://o2w3x32pee8a" path="res://scripts/ui/health_globe_ui.gd" id="1_1y60h"]
+[ext_resource type="Shader" uid="uid://y8x81fmrdcaa" path="res://liquid_fill.gdshader" id="1_35jo1"]
+[ext_resource type="Texture2D" uid="uid://o3j2bipasner" path="res://assets/ui/health_globe.png" id="2_jepvl"]
+[ext_resource type="Texture2D" uid="uid://cuju45oh1xwlj" path="res://assets/ui/frame_obsidian.png" id="4_jepvl"]
+[ext_resource type="Texture2D" uid="uid://c1pc18776nan1" path="res://assets/ui/окантовка главный экран.png" id="5_d6ktd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6ktd"]
+shader = ExtResource("1_35jo1")
+shader_parameter/fill_amount = 1.0
+
+[node name="HealthGlobeLayer" type="CanvasLayer" unique_id=1105088974]
+
+[node name="Globe" type="TextureRect" parent="." unique_id=975054023]
+material = SubResource("ShaderMaterial_d6ktd")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = -196.0
+offset_right = 99.0
+offset_bottom = -144.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+mouse_filter = 2
+texture = ExtResource("2_jepvl")
+expand_mode = 1
+script = ExtResource("1_1y60h")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=1976214122]
+z_index = 1
+offset_left = -100.0
+offset_top = 484.0
+offset_right = 355.0
+offset_bottom = 721.0
+mouse_filter = 2
+texture = ExtResource("4_jepvl")
+expand_mode = 1
+
+[node name="рамка" type="TextureRect" parent="." unique_id=610893032]
+offset_left = -176.0
+offset_top = -85.0
+offset_right = 1456.0
+offset_bottom = 800.0
+mouse_filter = 2
+texture = ExtResource("5_d6ktd")
